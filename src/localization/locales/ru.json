@@ -58,11 +58,53 @@
 					"secondPart": "авторизацию"
 				}
 			}
+		},
+		"toast": {
+			"sign-in": {
+				"success": "Вы успешно вошли в аккаунт",
+				"errors": {
+					"title": "Ошибка входа",
+					"description": {
+						"wrond-creds": "Неверный номер телефона или пароль"
+					}
+				}
+			},
+			"sign-up": {
+				"success": "Вы успешно зарегистрировались",
+				"errors": {
+					"title": "Ошибка регистрации",
+					"description": {
+						"phone-number-already-exists": "Пользователь с таким номером телефона уже существует",
+						"email-already-exists": "Пользователь с таким Email уже существует"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"title": "Организации"
+	},
+	"buildings": {
+		"title": "Строения"
+	},
+	"profile": {
+		"title": "Профиль",
+		"buttons": {
+			"exit": "Выйти"
 		}
 	},
 	"errors": {
+		"request-timeout": {
+			"title": "Не удалось получить ответ от сервера",
+			"description": "Проверьте интернет-соединение и попробуйте еще раз"
+		},
+		"internal-server-error": {
+			"title": "Произошла ошибка на сервере",
+			"description": "Мы уже работаем над этим - попробуйте позже"
+		},
 		"form": {
-			"requiredField": "Это обязательное поле"
+			"required-field": "Это обязательное поле",
+			"not-valid-data": "Проверьте валидность введенных данных"
 		}
 	}
 }

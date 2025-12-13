@@ -1,9 +1,9 @@
 import { useTheme } from '@react-navigation/native';
 import { Tabs } from 'expo-router';
-import { LogIn, UserPlus } from 'lucide-react-native';
+import { CreditCard, FileSignature } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 
-export default function AuthLayout() {
+export default function AppLayout() {
 	const { t } = useTranslation();
 	const { colors } = useTheme();
 
@@ -13,26 +13,35 @@ export default function AuthLayout() {
 				headerShown: false,
 				tabBarStyle: { backgroundColor: colors.card },
 				tabBarActiveTintColor: colors.primary,
-				tabBarInactiveTintColor: colors.text + '99', // полупрозрачный текст как inactive
+				tabBarInactiveTintColor: colors.text + '99',
 				tabBarHideOnKeyboard: false,
 				freezeOnBlur: false,
 			}}
 		>
 			<Tabs.Screen
-				name='login'
+				name='organizations'
 				options={{
-					title: t('auth.title.sign-in'),
+					title: t('organizations.title'),
 					tabBarIcon: ({ color, size }) => (
-						<LogIn color={color} size={size ?? 24} />
+						<FileSignature color={color} size={size ?? 24} />
 					),
 				}}
 			/>
 			<Tabs.Screen
-				name='register'
+				name='buildings'
 				options={{
-					title: t('auth.title.sign-up'),
+					title: t('buildings.title'),
 					tabBarIcon: ({ color, size }) => (
-						<UserPlus color={color} size={size ?? 24} />
+						<CreditCard color={color} size={size ?? 24} />
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name='profile'
+				options={{
+					title: t('profile.title'),
+					tabBarIcon: ({ color, size }) => (
+						<CreditCard color={color} size={size ?? 24} />
 					),
 				}}
 			/>

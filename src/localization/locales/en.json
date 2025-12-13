@@ -35,8 +35,8 @@
 				}
 			},
 			"passwordConfirm": {
-				"label": "Подтверждение пароля",
-				"placeholder": "Введите пароль повторно",
+				"label": "Password confirm",
+				"placeholder": "Repeat your password",
 				"hint": "Repeat your password to confirm",
 				"errors": {
 					"notMatch": "Passwords do not match"
@@ -45,24 +45,66 @@
 		},
 		"buttons": {
 			"sign-in": {
-				"enter": "Войти",
+				"enter": "Enter",
 				"navigation": {
-					"firstPart": "Еще нет аккаунта? Пройдите ",
-					"secondPart": "регистрацию"
+					"firstPart": "Do not have an account? Let's go to ",
+					"secondPart": "registration"
 				}
 			},
 			"sign-up": {
-				"enter": "Зарегистрироваться",
+				"enter": "Register",
 				"navigation": {
-					"firstPart": "Уже есть аккаунт? Пройдите ",
-					"secondPart": "авторизацию"
+					"firstPart": "Already have an account? Let's go to ",
+					"secondPart": "login"
+				}
+			}
+		},
+		"toast": {
+			"sign-in": {
+				"success": "Success login!",
+				"errors": {
+					"title": "Login error",
+					"description": {
+						"wrong-creds": "Wrong phone number or password"
+					}
+				}
+			},
+			"sign-up": {
+				"success": "Success registration!",
+				"errors": {
+					"title": "Registration error",
+					"description": {
+						"phone-number-already-exists": "User with this phone number already exists",
+						"email-already-exists": "User with this email already exists"
+					}
 				}
 			}
 		}
 	},
+	"organizations": {
+		"title": "Organizations"
+	},
+	"buildings": {
+		"title": "Buildings"
+	},
+	"profile": {
+		"title": "Profile",
+		"buttons": {
+			"exit": "Exit"
+		}
+	},
 	"errors": {
+		"request-timeout": {
+			"title": "Failed to get a response from the server",
+			"description": "Check your internet connection and try again"
+		},
+		"internal-server-error": {
+			"title": "A server error has occurred",
+			"description": "We’re already working on it — please try again later"
+		},
 		"form": {
-			"requiredFeild": "Это обязательное поле"
+			"required-feild": "Required field",
+			"not-valid-data": "Check the validity of entered data"
 		}
 	}
 }

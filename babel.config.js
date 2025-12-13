@@ -3,7 +3,6 @@ module.exports = function (api) {
 	return {
 		presets: ['babel-preset-expo'],
 		plugins: [
-			'expo-router/babel',
 			[
 				'module-resolver',
 				{
@@ -12,6 +11,7 @@ module.exports = function (api) {
 					extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
 				},
 			],
+			'react-native-paper/babel', // оптимизация Paper (серверные стили/тема)
 		],
 	};
 };

@@ -1,0 +1,26 @@
+{
+	"cli": {
+		"requireCommit": true
+	},
+	"build": {
+		"development": {
+			"developmentClient": true,
+			"distribution": "internal",
+			"env": {
+				"APP_ENV": "development"
+			}
+		},
+		"staging": {
+			"distribution": "internal",
+			"env": {
+				"APP_ENV": "staging"
+			}
+		},
+		"production": {
+			"autoIncrement": true,
+			"env": {
+				"APP_ENV": "production"
+			}
+		}
+	}
+}
