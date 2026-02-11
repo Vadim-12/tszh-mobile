@@ -23,7 +23,7 @@ export function ThemeProvider({ children }: PropsWithChildren) {
 
 	const paper = useMemo(
 		() => (mode === 'dark' ? MD3DarkTheme : MD3LightTheme),
-		[mode]
+		[mode],
 	);
 
 	const nav = useMemo(() => {
@@ -43,13 +43,15 @@ export function ThemeProvider({ children }: PropsWithChildren) {
 	}, [paper, mode]);
 
 	useEffect(() => {
-		themeService.getPreferredTheme().then((storedTheme) => {
+		const initTheme = async () => {
+			const storedTheme = await themeService.getPreferredTheme();
 			if (storedTheme) {
 				setTheme(storedTheme);
 			} else if (systemTheme) {
 				setTheme(systemTheme);
 			}
-		});
+		};
+		initTheme();
 	}, []);
 
 	const switchTheme = async (newTheme: TTheme) => {

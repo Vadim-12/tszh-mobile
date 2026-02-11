@@ -1,6 +1,6 @@
 import { useTheme } from '@react-navigation/native';
 import { Tabs } from 'expo-router';
-import { CreditCard, FileSignature } from 'lucide-react-native';
+import { Building2, Home, User } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 
 export default function AppLayout() {
@@ -13,7 +13,7 @@ export default function AppLayout() {
 				headerShown: false,
 				tabBarStyle: { backgroundColor: colors.card },
 				tabBarActiveTintColor: colors.primary,
-				tabBarInactiveTintColor: colors.text + '99',
+				tabBarInactiveTintColor: colors.text,
 				tabBarHideOnKeyboard: false,
 				freezeOnBlur: false,
 			}}
@@ -23,7 +23,7 @@ export default function AppLayout() {
 				options={{
 					title: t('organizations.title'),
 					tabBarIcon: ({ color, size }) => (
-						<FileSignature color={color} size={size ?? 24} />
+						<Building2 color={color} size={size ?? 24} />
 					),
 				}}
 			/>
@@ -32,7 +32,7 @@ export default function AppLayout() {
 				options={{
 					title: t('buildings.title'),
 					tabBarIcon: ({ color, size }) => (
-						<CreditCard color={color} size={size ?? 24} />
+						<Home color={color} size={size ?? 24} />
 					),
 				}}
 			/>
@@ -41,7 +41,7 @@ export default function AppLayout() {
 				options={{
 					title: t('profile.title'),
 					tabBarIcon: ({ color, size }) => (
-						<CreditCard color={color} size={size ?? 24} />
+						<User color={color} size={size ?? 24} />
 					),
 				}}
 			/>

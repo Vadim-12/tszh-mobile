@@ -1,5 +1,6 @@
+import Header from '@/components/header';
 import { Container } from '@/components/layouts/container';
-import { useLogin } from '@/hooks/auth/use-login';
+import { useLogin } from '@/hooks/api/auth/use-login';
 import { Link } from 'expo-router';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
@@ -47,84 +48,75 @@ export default function LoginScreen() {
 					width: '100%',
 				}}
 			>
-				<Text
-					variant='headlineSmall'
-					style={{ textAlign: 'center', marginBottom: 8 }}
-				>
-					{t('auth.title.sign-in')}
-				</Text>
+				<Header title={t('auth.title.sign-in')} />
 
-				<View>
-					<Controller
-						control={control}
-						name='phoneNumber'
-						rules={{
-							required: t('errors.form.required-field') as string,
-							pattern: {
-								value: /^[0-9+\-() ]{6,20}$/,
-								message: t('auth.fields.phoneNumber.errors.notValid') as string,
-							},
-						}}
-						render={({ field: { value, onChange, onBlur } }) => (
-							<>
-								<TextInput
-									label={t('auth.fields.phoneNumber.label')}
-									mode='outlined'
-									keyboardType='phone-pad'
-									autoComplete='tel'
-									returnKeyType='next'
-									value={value}
-									onChangeText={onChange}
-									onBlur={onBlur}
-									error={!!errors.phoneNumber}
-								/>
-								<HelperText type='error' visible={!!errors.phoneNumber}>
-									{errors.phoneNumber?.message}
-								</HelperText>
-							</>
-						)}
-					/>
-				</View>
+				<Controller
+					control={control}
+					name='phoneNumber'
+					rules={{
+						required: t('errors.form.required-field') as string,
+						pattern: {
+							value: /^[0-9+\-() ]{6,20}$/,
+							message: t('auth.fields.phoneNumber.errors.notValid') as string,
+						},
+					}}
+					render={({ field: { value, onChange, onBlur } }) => (
+						<>
+							<TextInput
+								label={t('auth.fields.phoneNumber.label')}
+								mode='outlined'
+								keyboardType='phone-pad'
+								autoComplete='tel'
+								returnKeyType='next'
+								value={value}
+								onChangeText={onChange}
+								onBlur={onBlur}
+								error={!!errors.phoneNumber}
+							/>
+							<HelperText type='error' visible={!!errors.phoneNumber}>
+								{errors.phoneNumber?.message}
+							</HelperText>
+						</>
+					)}
+				/>
 
-				<View>
-					<Controller
-						control={control}
-						name='password'
-						rules={{
-							required: t('errors.form.required-field') as string,
-							minLength: {
-								value: 6,
-								message: t('auth.fields.password.errors.minLength', {
-									n: 6,
-								}) as string,
-							},
-						}}
-						render={({ field: { value, onChange, onBlur } }) => (
-							<>
-								<TextInput
-									label={t('auth.fields.password.label')}
-									mode='outlined'
-									secureTextEntry={!showPassword}
-									autoCapitalize='none'
-									returnKeyType='done'
-									value={value}
-									onChangeText={onChange}
-									onBlur={onBlur}
-									error={!!errors.password}
-									right={
-										<TextInput.Icon
-											icon={showPassword ? 'eye-off' : 'eye'}
-											onPress={() => setShowPassword((s) => !s)}
-										/>
-									}
-								/>
-								<HelperText type='error' visible={!!errors.password}>
-									{errors.password?.message}
-								</HelperText>
-							</>
-						)}
-					/>
-				</View>
+				<Controller
+					control={control}
+					name='password'
+					rules={{
+						required: t('errors.form.required-field') as string,
+						minLength: {
+							value: 6,
+							message: t('auth.fields.password.errors.minLength', {
+								n: 6,
+							}) as string,
+						},
+					}}
+					render={({ field: { value, onChange, onBlur } }) => (
+						<>
+							<TextInput
+								label={t('auth.fields.password.label')}
+								mode='outlined'
+								secureTextEntry={!showPassword}
+								autoCapitalize='none'
+								returnKeyType='done'
+								value={value}
+								onChangeText={onChange}
+								onBlur={onBlur}
+								error={!!errors.password}
+								right={
+									<TextInput.Icon
+										icon={showPassword ? 'eye-off' : 'eye'}
+										onPress={() => setShowPassword((s) => !s)}
+									/>
+								}
+							/>
+							<HelperText type='error' visible={!!errors.password}>
+								{errors.password?.message}
+							</HelperText>
+						</>
+					)}
+				/>
 
 				<Button mode='contained' onPress={onSubmit} style={{ marginTop: 8 }}>
 					{t('auth.buttons.sign-in.enter')}

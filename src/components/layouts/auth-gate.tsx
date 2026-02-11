@@ -6,11 +6,23 @@ import { ITokens } from '@/services/tokens-service/types';
 import { Maybe } from '@/types/common';
 import { isExpired } from '@/utils/jwt-checks';
 import { useRootNavigationState, useRouter, useSegments } from 'expo-router';
-import { PropsWithChildren, useEffect, useState } from 'react';
+import {
+	Dispatch,
+	PropsWithChildren,
+	SetStateAction,
+	useCallback,
+	useEffect,
+	useMemo,
+	useState,
+} from 'react';
 import { View } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 
-export function AuthGate({ children }: PropsWithChildren) {
+interface IProps extends PropsWithChildren {
+	setIsReady: Dispatch<SetStateAction<boolean>>;
+}
+
+export function AuthGate({ children, setIsReady }: IProps) {
 	const router = useRouter();
 	const segments = useSegments();
 	const isNavReady = Boolean(useRootNavigationState().key);
@@ -20,25 +32,34 @@ export function AuthGate({ children }: PropsWithChildren) {
 		useState<boolean>(false);
 	const [isAuthReady, setIsAuthReady] = useState<boolean>(false);
 
-	async function setTokens(tokens: Maybe<ITokens>) {
+	const isReady = useMemo(
+		() => isNavReady && isLocalizationReady && isAuthReady,
+		[isNavReady, isLocalizationReady, isAuthReady]
+	);
+
+	useEffect(() => {
+		setIsReady(isReady);
+	}, [isReady, setIsReady]);
+
+	const setTokens = useCallback(async (tokens: Maybe<ITokens>) => {
 		if (tokens) {
 			await tokensService.saveTokens(tokens);
 		} else {
 			await tokensService.clearTokens();
 		}
 		setTokensLocal(tokens);
-	}
+	}, []);
 
 	useEffect(() => {
 		let cancelled = false;
 
 		(async () => {
 			try {
-				const tokens = await tokensService.getTokens();
+				const storedTokens = await tokensService.getTokens();
 				if (cancelled) return;
 
-				if (tokens && !isExpired(tokens.access)) {
-					await setTokens(tokens);
+				if (storedTokens && !isExpired(storedTokens.access)) {
+					await setTokens(storedTokens);
 					if (cancelled) return;
 					setIsAuthReady(true);
 					return;
@@ -70,18 +91,16 @@ export function AuthGate({ children }: PropsWithChildren) {
 	}, []);
 
 	useEffect(() => {
-		console.log(1, isAuthReady, isLocalizationReady, isNavReady);
-		if (!isAuthReady || !isLocalizationReady || !isNavReady) return;
+		if (!isReady) return;
 		const inAuth = segments[0] === '(auth)';
-		console.log(2, inAuth, tokens);
 		if (tokens && inAuth) {
 			router.replace('/(app)/buildings');
 		} else if (!tokens && !inAuth) {
 			router.replace('/(auth)/login');
 		}
-	}, [segments, isNavReady, isAuthReady, isLocalizationReady, router, tokens]);
+	}, [segments, isReady, router, tokens]);
 
-	if (!(isNavReady && isLocalizationReady && isAuthReady)) {
+	if (!isReady) {
 		return (
 			<View
 				style={{

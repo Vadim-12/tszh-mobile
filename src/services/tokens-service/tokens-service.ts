@@ -4,11 +4,11 @@ import { Maybe } from '@/types/common';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 class TokensService {
-	async getAccess() {
+	async getAccess(): Promise<Maybe<string>> {
 		return AsyncStorage.getItem(StorageKeysEnum.AccessToken);
 	}
 
-	async getRefresh() {
+	async getRefresh(): Promise<Maybe<string>> {
 		return AsyncStorage.getItem(StorageKeysEnum.RefreshToken);
 	}
 
@@ -21,18 +21,18 @@ class TokensService {
 			? {
 					access,
 					refresh,
-			  }
+				}
 			: null;
 	}
 
-	async saveTokens(tokens: ITokens) {
+	async saveTokens(tokens: ITokens): Promise<void> {
 		await Promise.all([
 			AsyncStorage.setItem(StorageKeysEnum.AccessToken, tokens.access),
 			AsyncStorage.setItem(StorageKeysEnum.RefreshToken, tokens.refresh),
 		]);
 	}
 
-	async clearTokens() {
+	async clearTokens(): Promise<void> {
 		await Promise.all([
 			AsyncStorage.removeItem(StorageKeysEnum.AccessToken),
 			AsyncStorage.removeItem(StorageKeysEnum.RefreshToken),

@@ -82,13 +82,75 @@
 		}
 	},
 	"organizations": {
-		"title": "Organizations"
+		"title": "Organizations",
+		"buttons": {
+			"create": "Create"
+		},
+		"screens": {
+			"creation": {
+				"title": "Organization creation",
+				"fields": {
+					"fullTitle": {
+						"label": "Full title",
+						"placeholder": "Enter the full title"
+					},
+					"shortTitle": {
+						"label": "Short title",
+						"placeholder": "Enter the short title"
+					},
+					"INN": {
+						"label": "INN",
+						"placeholder": "Enter the INN",
+						"errors": {
+							"length": "INN must consists of {{n}} digits"
+						}
+					},
+					"email": {
+						"label": "Email",
+						"placeholder": "Enter the email",
+						"errors": {
+							"notValid": "Not valid Email"
+						}
+					},
+					"legalAddress": {
+						"label": "Legal address",
+						"placeholder": "Enter the legal address"
+					}
+				},
+				"submit": "Create",
+				"errors": {
+					"title": "Organization creation error",
+					"description": {
+						"not-valid-data": "Check the validity of entered data",
+						"inn-already-exists": "Organization with this INN already exists"
+					}
+				}
+			},
+			"specifiedOrganization": {
+				"fields": {
+					"fullTitle": "Full title",
+					"shortTitle": "Short title",
+					"INN": "INN",
+					"email": "Email",
+					"legalAddress": "Legal address"
+				},
+				"actions": {
+					"join": "Join",
+					"leave": "Leave"
+				}
+			}
+		}
 	},
 	"buildings": {
 		"title": "Buildings"
 	},
 	"profile": {
 		"title": "Profile",
+		"fields": {
+			"fullName": "ФИО",
+			"email": "Email",
+			"phoneNumber": "Номер телефона"
+		},
 		"buttons": {
 			"exit": "Exit"
 		}

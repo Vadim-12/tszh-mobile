@@ -13,7 +13,7 @@ import { tokensService } from '@/services/tokens-service/tokens-service';
 import { AxiosResponse } from 'axios';
 
 class AuthService {
-	async login(dto: ILoginRequestDto) {
+	async login(dto: ILoginRequestDto): Promise<ILoginResponseDto> {
 		const response = await authApi.post<
 			ILoginResponseDto,
 			AxiosResponse<ILoginResponseDto>,
@@ -29,7 +29,7 @@ class AuthService {
 		return data;
 	}
 
-	async register(dto: IRegisterRequestDto) {
+	async register(dto: IRegisterRequestDto): Promise<IRegisterResponseDto> {
 		const response = await authApi.post<
 			IRegisterResponseDto,
 			AxiosResponse<IRegisterResponseDto>,
@@ -45,10 +45,10 @@ class AuthService {
 		return data;
 	}
 
-	async refresh() {
+	async refresh(): Promise<IRefreshResponseDto | null> {
 		const token = await tokensService.getRefresh();
 		if (!token) {
-			return;
+			return null;
 		}
 		const response = await authApi.post<
 			IRefreshResponseDto,
@@ -66,7 +66,7 @@ class AuthService {
 		return data;
 	}
 
-	async logout(dto: ILogoutRequestDto) {
+	async logout(dto: ILogoutRequestDto): Promise<ILogoutResponseDto> {
 		const response = await authApi.post<
 			ILogoutResponseDto,
 			AxiosResponse<ILogoutResponseDto>,

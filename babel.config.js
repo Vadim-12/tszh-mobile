@@ -11,7 +11,7 @@ module.exports = function (api) {
 					extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
 				},
 			],
-			'react-native-paper/babel', // оптимизация Paper (серверные стили/тема)
+			'react-native-paper/babel',
 		],
 	};
 };

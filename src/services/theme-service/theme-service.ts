@@ -9,6 +9,7 @@ class ThemeService {
 		if (storedTheme === 'light' || storedTheme === 'dark') {
 			return storedTheme;
 		}
+		return null;
 	}
 
 	async setPreferredTheme(theme: TTheme): Promise<void> {

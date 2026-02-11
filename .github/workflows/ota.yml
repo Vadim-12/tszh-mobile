@@ -1,0 +1,38 @@
+name: OTA Updates
+
+on:
+  push:
+    branches:
+      - beta
+      - main
+
+jobs:
+  ota:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Install EAS CLI
+        run: bun add -g eas-cli
+
+      - name: Publish OTA (beta)
+        if: github.ref == 'refs/heads/beta'
+        run: eas update --branch beta --message "${{ github.event.head_commit.message }}"
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Publish OTA (production)
+        if: github.ref == 'refs/heads/main'
+        run: eas update --branch production --message "${{ github.event.head_commit.message }}"
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}

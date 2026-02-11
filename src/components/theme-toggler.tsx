@@ -14,6 +14,7 @@ export function ThemeToggler() {
 	}, [ctx?.theme, system]);
 
 	if (!ctx) return null;
+
 	return (
 		<Switch
 			value={isDark}

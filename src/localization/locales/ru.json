@@ -1,110 +1,172 @@
 {
-	"auth": {
-		"title": {
-			"sign-in": "Вход",
-			"sign-up": "Регистрация"
-		},
-		"fields": {
-			"fullName": {
-				"label": "ФИО",
-				"placeholder": "Введите ваши ФИО",
-				"errors": {
-					"notValid": "Введите фамилию и имя полностью"
-				}
-			},
-			"phoneNumber": {
-				"label": "Номер телефона",
-				"placeholder": "+7 (___) ___-__-__",
-				"errors": {
-					"notValid": "Введите корректный номер телефона"
-				}
-			},
-			"email": {
-				"label": "Email",
-				"placeholder": "Введите ваш Email",
-				"errors": {
-					"notValid": "Невалидный Email"
-				}
-			},
-			"password": {
-				"label": "Пароль",
-				"placeholder": "Введите пароль",
-				"hint": "Минимум {{n}} символов",
-				"errors": {
-					"minLength": "Пароль должен состоять хотя бы из {{n}} символов"
-				}
-			},
-			"passwordConfirm": {
-				"label": "Подтверждение пароля",
-				"placeholder": "Введите пароль повторно",
-				"hint": "Повторите пароль для подтверждения",
-				"errors": {
-					"notMatch": "Пароли не совпадают"
-				}
-			}
-		},
-		"buttons": {
-			"sign-in": {
-				"enter": "Войти",
-				"navigation": {
-					"firstPart": "Еще нет аккаунта? Пройдите ",
-					"secondPart": "регистрацию"
-				}
-			},
-			"sign-up": {
-				"enter": "Зарегистрироваться",
-				"navigation": {
-					"firstPart": "Уже есть аккаунт? Пройдите ",
-					"secondPart": "авторизацию"
-				}
-			}
-		},
-		"toast": {
-			"sign-in": {
-				"success": "Вы успешно вошли в аккаунт",
-				"errors": {
-					"title": "Ошибка входа",
-					"description": {
-						"wrond-creds": "Неверный номер телефона или пароль"
-					}
-				}
-			},
-			"sign-up": {
-				"success": "Вы успешно зарегистрировались",
-				"errors": {
-					"title": "Ошибка регистрации",
-					"description": {
-						"phone-number-already-exists": "Пользователь с таким номером телефона уже существует",
-						"email-already-exists": "Пользователь с таким Email уже существует"
-					}
-				}
-			}
-		}
-	},
-	"organizations": {
-		"title": "Организации"
-	},
-	"buildings": {
-		"title": "Строения"
-	},
-	"profile": {
-		"title": "Профиль",
-		"buttons": {
-			"exit": "Выйти"
-		}
-	},
-	"errors": {
-		"request-timeout": {
-			"title": "Не удалось получить ответ от сервера",
-			"description": "Проверьте интернет-соединение и попробуйте еще раз"
-		},
-		"internal-server-error": {
-			"title": "Произошла ошибка на сервере",
-			"description": "Мы уже работаем над этим - попробуйте позже"
-		},
-		"form": {
-			"required-field": "Это обязательное поле",
-			"not-valid-data": "Проверьте валидность введенных данных"
-		}
-	}
+  "auth": {
+    "title": {
+      "sign-in": "Вход",
+      "sign-up": "Регистрация"
+    },
+    "fields": {
+      "fullName": {
+        "label": "ФИО",
+        "placeholder": "Введите ваши ФИО",
+        "errors": {
+          "notValid": "Введите фамилию и имя полностью"
+        }
+      },
+      "phoneNumber": {
+        "label": "Номер телефона",
+        "placeholder": "+7 (___) ___-__-__",
+        "errors": {
+          "notValid": "Введите корректный номер телефона"
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Введите ваш Email",
+        "errors": {
+          "notValid": "Невалидный Email"
+        }
+      },
+      "password": {
+        "label": "Пароль",
+        "placeholder": "Введите пароль",
+        "hint": "Минимум {{n}} символов",
+        "errors": {
+          "minLength": "Пароль должен состоять хотя бы из {{n}} символов"
+        }
+      },
+      "passwordConfirm": {
+        "label": "Подтверждение пароля",
+        "placeholder": "Введите пароль повторно",
+        "hint": "Повторите пароль для подтверждения",
+        "errors": {
+          "notMatch": "Пароли не совпадают"
+        }
+      }
+    },
+    "buttons": {
+      "sign-in": {
+        "enter": "Войти",
+        "navigation": {
+          "firstPart": "Еще нет аккаунта? Пройдите ",
+          "secondPart": "регистрацию"
+        }
+      },
+      "sign-up": {
+        "enter": "Зарегистрироваться",
+        "navigation": {
+          "firstPart": "Уже есть аккаунт? Пройдите ",
+          "secondPart": "авторизацию"
+        }
+      }
+    },
+    "toast": {
+      "sign-in": {
+        "success": "Вы успешно вошли в аккаунт",
+        "errors": {
+          "title": "Ошибка входа",
+          "description": {
+            "wrond-creds": "Неверный номер телефона или пароль"
+          }
+        }
+      },
+      "sign-up": {
+        "success": "Вы успешно зарегистрировались",
+        "errors": {
+          "title": "Ошибка регистрации",
+          "description": {
+            "phone-number-already-exists": "Пользователь с таким номером телефона уже существует",
+            "email-already-exists": "Пользователь с таким Email уже существует"
+          }
+        }
+      }
+    }
+  },
+  "organizations": {
+    "title": "Организации",
+    "buttons": {
+      "create": "Создать"
+    },
+    "screens": {
+      "creation": {
+        "title": "Создание организации",
+        "fields": {
+          "fullTitle": {
+            "label": "Полное название",
+            "placeholder": "Введите полное наименование"
+          },
+          "shortTitle": {
+            "label": "Краткое наименование",
+            "placeholder": "Введите краткое наименование"
+          },
+          "INN": {
+            "label": "ИНН организации",
+            "placeholder": "Введите ИНН организации",
+            "errors": {
+              "length": "ИНН должен состояить из {{n}} цифр"
+            }
+          },
+          "email": {
+            "label": "Email организации",
+            "placeholder": "Введите email организации",
+            "errors": {
+              "notValid": "Невалидный email"
+            }
+          },
+          "legalAddress": {
+            "label": "Юридический адрес",
+            "placeholder": "Введите юридический адрес"
+          }
+        },
+        "submit": "Создать",
+        "errors": {
+          "title": "Ошибка создания организации",
+          "description": {
+            "not-valid-data": "Проверьте валидность введенных данных",
+            "inn-already-exists": "Организация с таким ИНН уже существует"
+          }
+        }
+      },
+      "specifiedOrganization": {
+        "fields": {
+          "fullTitle": "Полное название",
+          "shortTitle": "Краткое название",
+          "INN": "ИНН",
+          "email": "Email",
+          "legalAddress": "Официальный адрес"
+        },
+        "actions": {
+          "join": "Присоединиться",
+          "leave": "Покинуть"
+        }
+      }
+    }
+  },
+  "buildings": {
+    "title": "Строения"
+  },
+  "profile": {
+    "title": "Профиль",
+    "fields": {
+      "fullName": "ФИО",
+      "email": "Email",
+      "phoneNumber": "Номер телефона"
+    },
+    "buttons": {
+      "exit": "Выйти"
+    }
+  },
+  "errors": {
+    "request-timeout": {
+      "title": "Не удалось получить ответ от сервера",
+      "description": "Проверьте интернет-соединение и попробуйте еще раз"
+    },
+    "internal-server-error": {
+      "title": "Произошла ошибка на сервере",
+      "description": "Мы уже работаем над этим - попробуйте позже"
+    },
+    "form": {
+      "required-field": "Это обязательное поле",
+      "not-valid-data": "Проверьте валидность введенных данных"
+    }
+  }
 }

@@ -14,11 +14,11 @@ export function useLogin() {
 
 	return useMutation({
 		mutationFn: (p: { phoneNumber: string; password: string }) => {
-			const data = authService.login({
+			const promise = authService.login({
 				phone_number: p.phoneNumber,
 				password: p.password,
 			});
-			return data;
+			return promise;
 		},
 		async onSuccess(response) {
 			await setTokens(response.tokens);

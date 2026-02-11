@@ -1,13 +1,13 @@
 // https://docs.expo.dev/guides/using-eslint/
-const { defineConfig } = require('eslint/config');
-const expoConfig = require('eslint-config-expo/flat');
+// @ts-nocheck
+import expoConfig from 'eslint-config-expo/flat';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import { defineConfig } from 'eslint/config';
 
-module.exports = defineConfig([
-	expoConfig,
-	{
-		ignores: ['dist/*'],
-		rules: {
-			'import/no-named-as-default-member': 'off',
-		},
-	},
+export default defineConfig([
+  expoConfig,
+  {
+    ignores: ['dist/*'],
+  },
+  eslintConfigPrettier,
 ]);

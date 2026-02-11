@@ -50,13 +50,13 @@ coreApi.interceptors.response.use(
 			}
 
 			// разбудим очередь
-			waitQueue.forEach((fn) => fn(refreshResponse.data.access_token));
+			waitQueue.forEach((fn) => fn(refreshResponse.tokens.access));
 			waitQueue = [];
 
 			// повторяем исходный запрос с новым токеном
 			original.headers = {
 				...(original.headers || {}),
-				Authorization: `Bearer ${refreshResponse.data.access_token}`,
+				Authorization: `Bearer ${refreshResponse.tokens.access}`,
 			};
 			return axios(original);
 		} catch (e) {
