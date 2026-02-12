@@ -10,6 +10,25 @@ on:
 
 jobs:
   # -----------------------------
+  # OTA
+  # -----------------------------
+  publish_ota_beta:
+    if: github.ref == 'refs/heads/beta'
+    name: OTA update (beta)
+    type: update
+    params:
+      branch: beta
+      message: ${{ github.event.head_commit.message }}
+
+  publish_ota_production:
+    if: github.ref == 'refs/heads/main'
+    name: OTA update (production)
+    type: update
+    params:
+      branch: production
+      message: ${{ github.event.head_commit.message }}
+
+  # -----------------------------
   # BETA BUILD (internal testing)
   # -----------------------------
   build_beta_android:
