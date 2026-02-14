@@ -8,14 +8,16 @@
       "distribution": "internal",
       "channel": "beta",
       "env": {
-        "APP_ENV": "beta"
+        "APP_ENV": "beta",
+        "API_URL": "https://morozova104.ru"
       }
     },
     "production": {
       "autoIncrement": true,
       "channel": "production",
       "env": {
-        "APP_ENV": "production"
+        "APP_ENV": "production",
+        "API_URL": "https://morozova104.ru"
       }
     }
   }
