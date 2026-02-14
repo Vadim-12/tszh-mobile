@@ -27,12 +27,13 @@ jobs:
 
       - name: Publish OTA (beta)
         if: github.ref == 'refs/heads/beta'
-        run: eas update --branch beta --message "${{ github.event.head_commit.message }}"
+        run: eas update --branch beta --message "${{ github.event.head_commit.message }}" --non-interactive
+
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Publish OTA (production)
         if: github.ref == 'refs/heads/main'
-        run: eas update --branch production --message "${{ github.event.head_commit.message }}"
+        run: eas update --branch production --message "${{ github.event.head_commit.message }}" --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
