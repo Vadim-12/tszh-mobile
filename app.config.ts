@@ -10,7 +10,7 @@ const config: ExpoConfig = {
   slug: 'tszh-for-people',
   version: '1.0.0',
   runtimeVersion: {
-    policy: 'fingerprint',
+    policy: 'appVersion',
   },
   updates: {
     url: `https://u.expo.dev/${EAS_PROJECT_ID}`,
