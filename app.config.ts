@@ -24,6 +24,7 @@ const config: ExpoConfig = {
     supportsTablet: true,
     backgroundColor: '#333333',
     bundleIdentifier: 'me.agarkov.tszhforpeople',
+    infoPlist: { ITSAppUsesNonExemptEncryption: false },
   },
   android: {
     adaptiveIcon: {

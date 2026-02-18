@@ -5,17 +5,26 @@
   },
   "build": {
     "beta": {
-      "distribution": "internal",
+      "environment": "preview",
       "channel": "beta",
+      "distribution": "internal",
       "env": {
         "APP_ENV": "beta"
       }
     },
     "production": {
-      "autoIncrement": true,
+      "environment": "production",
       "channel": "production",
+      "autoIncrement": true,
       "env": {
         "APP_ENV": "production"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "track": "production"
       }
     }
   }

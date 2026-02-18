@@ -1,0 +1,14 @@
+name: Build Beta
+
+on:
+  push:
+    branches:
+      - beta
+
+jobs:
+  build_beta_android:
+    name: Build Android (beta)
+    type: build
+    params:
+      platform: android
+      profile: beta

@@ -1,0 +1,22 @@
+name: Release Production
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_production_android:
+    name: Build Android (production)
+    type: build
+    params:
+      platform: android
+      profile: production
+
+  submit_android:
+    name: Submit Android (RuStore)
+    type: submit
+    needs: [build_production_android]
+    params:
+      profile: production
+      build_id: ${{ needs.build_production_android.outputs.build_id }}
